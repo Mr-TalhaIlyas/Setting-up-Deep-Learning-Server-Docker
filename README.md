@@ -55,7 +55,7 @@ nvidia-smi
 
 When you are setting up a deep learning server you don't have to install Nvidia CUDA Toolkit. As different version of libraries require differnt versions of CUDA and cuDNN toolkits installed. Docker has advantage that when we run a specific image of a specific version of a library all of its dependencies ,like DL SDK, CUDA toolkit, are automatically installed within that isolated container. For details [here](https://docs.nvidia.com/deeplearning/frameworks/user-guide/index.html)
 
-![alt text](/nvidia1.png)
+![alt text](https://github.com/Mr-TalhaIlyas/Setting-up-Deep-Learning-Server-Docker/blob/main/screens/nvidia1.png)
 
 [image source](https://docs.nvidia.com/deeplearning/frameworks/user-guide/index.html)
 
@@ -71,14 +71,14 @@ After you have completed the installation check the installation and version via
 ```
 $ sudo docker version
 ```
-![alt text](/docker_v.png)
+![alt text](https://github.com/Mr-TalhaIlyas/Setting-up-Deep-Learning-Server-Docker/blob/main/screens/docker_v.png)
 
 ```
 $ sudo docker run docker/whalesay cowsay hello to the world of docker
 ```
 and you'll semething like
 
-![alt text](/hello_docker.png)
+![alt text](https://github.com/Mr-TalhaIlyas/Setting-up-Deep-Learning-Server-Docker/blob/main/screens/hello_docker.png)
 
 Notice the yellow highlighted area that the container `whalesay` wasn't available on your local machine. So the docker automatically dowloaded it from the official docker hub.
 
@@ -140,15 +140,15 @@ $ docker run --gpus all -it --rm tensorflow/tensorflow:2.3.0-gpu
 
 Once you run above command you'll see
 
-![alt text](/tf3.png)
+![alt text](https://github.com/Mr-TalhaIlyas/Setting-up-Deep-Learning-Server-Docker/blob/main/screens/tf3.png)
 
 Moreover you'll see that after running the above command now you're inside a completely isolated container. As this 
 
-![alt text](/b.png)
+![alt text](https://github.com/Mr-TalhaIlyas/Setting-up-Deep-Learning-Server-Docker/blob/main/screens/b.png)
 
 change to this
 
-![alt text](/c.png)
+![alt text](https://github.com/Mr-TalhaIlyas/Setting-up-Deep-Learning-Server-Docker/blob/main/screens/c.png)
 
 Now while inside container you can check your isntallation via
 
@@ -162,7 +162,7 @@ $ python
 ```
 You'll see following output.
 
-![alt text](/tf3_op.png)
+![alt text](https://github.com/Mr-TalhaIlyas/Setting-up-Deep-Learning-Server-Docker/blob/main/screens/tf3_op.png)
 
 *Step 3.* Installing `pip` libraries.
 
