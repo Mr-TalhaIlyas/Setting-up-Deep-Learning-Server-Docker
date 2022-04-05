@@ -178,9 +178,9 @@ To exit container press `Ctrl` + `P` + `Q`
 
 If you have entered python inside container then first press `Ctrl` + `Z`.
 
+⚠ **Every time you exit container all of your installed libs/packages will also be destroyed as the containers don't hold any data or any OS. They only exist as long as the process inside them is running after that they are destroyed and every time you run the command for `docker run` a completely new docker container in created.** ⚠
 
-
-
+So its better to create Docker custom image files using `Docker build` so that you can load your own custom containers with all the dependencides installed.
 
 
 
