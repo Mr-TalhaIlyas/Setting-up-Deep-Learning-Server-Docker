@@ -142,10 +142,27 @@ Once you run above command you'll see
 
 ![alt text](/tf3.png)
 
+Moreover you'll see that after running the above command now you're inside a completely isolated container. As this 
 
+![alt text](/b.png)
 
+change to this
 
+![alt text](/c.png)
 
+Now while inside container you can check your isntallation via
+
+```
+// type this while insed container
+$ python
+
+// you'll enter python now
+>>>import tensorflow as tf
+>>>tf.config.list_physical_devices('GPU')
+```
+You'll see following output.
+
+![alt text](/tf3_op.png)
 
 
 
