@@ -63,7 +63,7 @@ nvidia-smi
 
 If you have any previous or broken installation of docker then remove it first by following steps here [uninstall docker](#uninstall-docker).
 
-The detailed steps for installing docker via different methods on `Linux` are listed [here](https://docs.docker.com/engine/install/ubuntu/). I'll be using `Install using repository` method listed there.
+The detailed steps for installing docker via different methods on `Linux` are listed [here](https://docs.docker.com/engine/install/ubuntu/). I'll be using [`Install using repository`](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository) method listed there.
 
 After you have completed the installation check the installation via
 
