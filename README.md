@@ -164,7 +164,14 @@ You'll see following output.
 
 ![alt text](/tf3_op.png)
 
+*Step 3.* Installing `pip` libraries.
 
+Definately you don't only need the `tf` to develope you ML models. YOu need other libraries like `opencv`, `imutils` etc. So while inside this container you can install these libraries via `pip` as you'd ususally do.
+
+```
+$ pip install fmutils
+$ pip install <name of lib>
+```
 
 
 
