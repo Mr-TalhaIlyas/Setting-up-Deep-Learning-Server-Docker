@@ -148,7 +148,7 @@ Moreover you'll see that after running the above command now you're inside a com
 
 change to this
 
-![alt text](https://github.com/Mr-TalhaIlyas/Setting-up-Deep-Learning-Server-Docker/blob/main/screens/c.png)
+![alt text](https://github.com/Mr-TalhaIlyas/Setting-up-Deep-Learning-Server-Docker/blob/main/screens/r.png)
 
 Now while inside container you can check your isntallation via
 
