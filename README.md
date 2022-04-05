@@ -51,8 +51,9 @@ nvidia-smi
 ```
 ![alt text](https://github.com/Mr-TalhaIlyas/Setting-Up-Deep-Learning-Server-Anaconda/blob/main/Pictures/s3.png)
 
-# Install Docker
-**side note** When you are setting up a deep learning server you don't have to install Nvidia CUDA Toolkit. As different version of libraries require differnt versions of CUDA and cuDNN toolkits installed. Docker has advantage that when we run a specific image of a specific version of a library all of its dependencies ,like DL SDK, CUDA toolkit, are automatically installed within that isolated container. For details [here](https://docs.nvidia.com/deeplearning/frameworks/user-guide/index.html)
+## 2. Install Docker
+
+When you are setting up a deep learning server you don't have to install Nvidia CUDA Toolkit. As different version of libraries require differnt versions of CUDA and cuDNN toolkits installed. Docker has advantage that when we run a specific image of a specific version of a library all of its dependencies ,like DL SDK, CUDA toolkit, are automatically installed within that isolated container. For details [here](https://docs.nvidia.com/deeplearning/frameworks/user-guide/index.html)
 
 ![alt text](/nvidia1.png)
 
@@ -65,7 +66,99 @@ If you have any previous or broken installation of docker then remove it first b
 
 The detailed steps for installing docker via different methods on `Linux` are listed [here](https://docs.docker.com/engine/install/ubuntu/). I'll be using [`Install using repository`](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository) method listed there.
 
-After you have completed the installation check the installation via
+I'll be installing the latest version of Docker available, currently whihc is `5:20.10.14~3-0~ubuntu-bionic`.
+After you have completed the installation check the installation and version via
+```
+$ sudo docker version
+```
+![alt text](/docker_v.png)
+
+```
+$ sudo docker run docker/whalesay cowsay hello to the world of docker
+```
+and you'll semething like
+
+![alt text](/hello_docker.png)
+
+Notice the yellow highlighted area that the container `whalesay` wasn't available on your local machine. So the docker automatically dowloaded it from the official docker hub.
+
+## Post-Installation Steps on Linux for Conveninece
+Notice that in the above commands we had to use `sudo` just for checking version installed and printing `docker hello world`. Docker will always need root permission. So to give it root permisison by default follow the steps below.
+
+```
+//creat new docker group
+$  sudo groupadd docker
+// you might see,
+//groupadd: group 'docker' already exists
+// but continue anyway
+
+// here i'll replace $USER with my username i.e, talha
+$  sudo usermod -aG docker $USER
+
+// to activate groupchanges
+$ newgrp docker 
+
+// now test it, without sudo
+$ docker run docker/whalesay cowsay hello to the world of docker
+```
+
+## 3. Installing Deep Learning Libraries (Tensorflow/Pytorch)
+
+We'll install here `tensorflow-gpu` first.
+1. [Official TF Guide](https://www.tensorflow.org/install/docker)
+2. [Docker TF Hub](https://hub.docker.com/r/tensorflow/tensorflow/)
+
+*Step 1.* Install Nvidia Container Toolkit
+Lets first install `NVIDIA Container Toolkit` whihc will allows us to build and run GPU accelerated Docker containers liek TF/Torch. Details for installation can be found [here](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker). But I'll just summarize them below.
+
+Setup the package repository and the GPG key:
+```
+$ distribution=$(. /etc/os-release;echo $ID$VERSION_ID) \
+      && curl -s -L https://nvidia.github.io/libnvidia-container/gpgkey | sudo apt-key add - \
+      && curl -s -L https://nvidia.github.io/libnvidia-container/$distribution/libnvidia-container.list | sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
+```
+Now install `nvidia-docker2` package
+
+```
+$ sudo apt-get update
+
+$ sudo apt-get install -y nvidia-docker2
+
+// Restart the Docker daemon to complete the installation after setting the default runtime:
+$ sudo systemctl restart docker
+```
+and you are done installing nvidia container. We haven't installed any specific `CUDA` or `cuDNN` toolkit here. Those will be automatically installed when we will install a specific version of our desired library.
+
+*Step2.* Install Tensorflow
+Go [here](https://hub.docker.com/r/tensorflow/tensorflow/tags) and select your desired `tf` version. Just like `conda` needs you to specify the vesion of lib to be installed like `conda install lib_name==0.1.3` etc. Docker uses tags to specify the versions to be installed.
+
+We will install `tensorflow-gpu==2.3.0` here. So type in the following command. The parameter `--gpys all` is important without it the gpus will not be detected by the container.
+
+```
+$ docker run --gpus all -it --rm tensorflow/tensorflow:2.3.0-gpu
+```
+
+Once you run above command you'll see
+
+![alt text](/tf3.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # <a name="uninstall-docker">Uninstalling Docker</a>
