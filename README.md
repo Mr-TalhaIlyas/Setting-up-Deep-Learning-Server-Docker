@@ -101,14 +101,7 @@ $ newgrp docker
 // now test it, without sudo
 $ docker run docker/whalesay cowsay hello to the world of docker
 ```
-
-## 3. Installing Deep Learning Libraries (Tensorflow/Pytorch)
-
-We'll install here `tensorflow-gpu` first.
-1. [Official TF Guide](https://www.tensorflow.org/install/docker)
-2. [Docker TF Hub](https://hub.docker.com/r/tensorflow/tensorflow/)
-
-*Step 1.* Install Nvidia Container Toolkit
+## 3. Install Nvidia Container Toolkit
 Lets first install `NVIDIA Container Toolkit` whihc will allows us to build and run GPU accelerated Docker containers liek TF/Torch. Details for installation can be found [here](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker). But I'll just summarize them below.
 
 Setup the package repository and the GPG key:
@@ -129,7 +122,13 @@ $ sudo systemctl restart docker
 ```
 and you are done installing nvidia container. We haven't installed any specific `CUDA` or `cuDNN` toolkit here. Those will be automatically installed when we will install a specific version of our desired library.
 
-*Step2.* Install Tensorflow
+## 4. Installing Deep Learning Libraries (Tensorflow/Pytorch)
+
+We'll install here `tensorflow-gpu` first.
+1. [Official TF Guide](https://www.tensorflow.org/install/docker)
+2. [Docker TF Hub](https://hub.docker.com/r/tensorflow/tensorflow/)
+
+
 Go [here](https://hub.docker.com/r/tensorflow/tensorflow/tags) and select your desired `tf` version. Just like `conda` needs you to specify the vesion of lib to be installed like `conda install lib_name==0.1.3` etc. Docker uses tags to specify the versions to be installed.
 
 We will install `tensorflow-gpu==2.3.0` here. So type in the following command. The parameter `--gpys all` is important without it the gpus will not be detected by the container.
@@ -164,7 +163,7 @@ You'll see following output.
 
 ![alt text](https://github.com/Mr-TalhaIlyas/Setting-up-Deep-Learning-Server-Docker/blob/main/screens/tf3_op.png)
 
-*Step 3.* Installing `pip` libraries.
+## 5. Installing `pip` libraries.
 
 Definately you don't only need the `tf` to develope you ML models. YOu need other libraries like `opencv`, `imutils` etc. So while inside this container you can install these libraries via `pip` as you'd ususally do.
 
