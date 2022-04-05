@@ -172,7 +172,11 @@ Definately you don't only need the `tf` to develope you ML models. YOu need othe
 $ pip install fmutils
 $ pip install <name of lib>
 ```
+*Step 4.* Exiting Container
 
+To exit container press `Ctrl` + `P` + `Q`
+
+If you have entered python inside container then first press `Ctrl` + `Z`.
 
 
 
