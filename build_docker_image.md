@@ -8,9 +8,11 @@ Here I'll summarize making docker image for ML/DL models. I'll be creating `tens
 
 ### 1. Build a Dockerfile as follows
 ```Dockerfile
+# base image this one will have the OS, python and pip already installed in it.
 FROM tensorflow/tensorflow:2.3.0-gpu
 
-RUN apt-get update && apt-get install -y \
+# for cache busting use both apt-get update and install in same line with &&
+RUN apt-get update && apt-get install -y \  
     ffmpeg \
     libsm6 \
     libxext6
