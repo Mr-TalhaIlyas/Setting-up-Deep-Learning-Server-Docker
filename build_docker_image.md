@@ -11,6 +11,11 @@ Here I'll summarize making docker image for ML/DL models. I'll be creating `tens
 # base image this one will have the OS, python and pip already installed in it.
 FROM tensorflow/tensorflow:2.3.0-gpu
 
+# first copy the txt file 
+COPY requirements.txt /tmp
+# now change the working dir
+WORKDIR /tmp
+
 # for cache busting use both apt-get update and install in same line with &&
 RUN apt-get update && apt-get install -y \  
     ffmpeg \
