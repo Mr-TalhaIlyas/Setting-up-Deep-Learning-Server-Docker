@@ -37,3 +37,13 @@ gray2color
 include all the packages you need in this `txt` file.
 
 
+### Build your image
+Copy the both files in same `dir` and `cd` to that `dir` and start `build` by running following command.
+
+```cmd
+docker build -t ttf3 .
+```
+`-t` will specify tag/name of your package build
+`.` will specify that the Dockerfile is in the same dir. Else you can put full path there.
+
+After running it will take some time to download and cache all the packages. Once first build is done the next build will be fast as Docker will use cached data.
