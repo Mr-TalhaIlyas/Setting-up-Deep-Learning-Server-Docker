@@ -50,9 +50,32 @@ include all the packages you need in this `txt` file.
 Copy the both files in same `dir` and `cd` to that `dir` and start `build` by running following command.
 
 ```cmd
-docker build -t ttf3 .
+docker build -t my_doc_image .
 ```
 `-t` will specify tag/name of your package build
+
 `.` will specify that the Dockerfile is in the same dir. Else you can put full path there.
 
 After running it will take some time to download and cache all the packages. Once first build is done the next build will be fast as Docker will use cached data.
+
+### Run your image
+
+Now you can run your image by simply typing
+
+```
+docker run -it --rm my_doc_image
+```
+`-it` flag wil enables interactive processes in the workbench terminal.
+
+`--rm` flag will remove intermediate containers after a successful build.
+
+For detailed options/flags [here](https://docs.docker.com/engine/reference/commandline/build/)
+
+If you want to mount an external host machine `dir` to be mounted in the container then you can type
+
+```
+docker run -it --rm -v /dir/in/hose/machine/:/app my_doc_image
+```
+`-v` flag will mount *local folder* `/dir/in/hose/machine/` to `/app/` directory on the container image.
+
+**Note**: we created and set the working dir to `/app/` while creating image.
