@@ -1,0 +1,9 @@
+opencv-python
+matplotlib
+pillow
+tqdm
+fmutils
+empatches
+gray2color
+scikit-image
+scikit-learn
