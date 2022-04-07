@@ -92,3 +92,16 @@ $ docker run -it --rm \
 **Note**: we created and set the working dir to `/app/` while creating image.
 
 Your can check all the files loaded in container by typing `ls`.
+
+## Push you container to Docker Hub
+
+```
+docker login
+# enter username and password
+
+docker build -t tf:2.3-gpu-v0.1 .
+
+docker tag tf:2.3-gpu-v0.1 talhailyas/tf:2.3-gpu-v0.1
+
+docker push talhailyas/tf:2.3-gpu-v0.1
+```
