@@ -76,9 +76,18 @@ For detailed options/flags [here](https://docs.docker.com/engine/reference/comma
 If you want to mount an external host machine `dir` to be mounted in the container then you can type
 
 ```
-docker run -it --rm -v /dir/in/hose/machine/:/app my_doc_image
+$ docker run -it --rm -v /dir/in/hose/machine/:/app/ my_doc_image
 ```
 `-v` flag will mount *local folder* `/dir/in/hose/machine/` to `/app/` directory on the container image.
+
+The above functionality can also be achieved by using `-mount` instead of `-v` flag.
+
+```
+$ docker run -it --rm \
+     --mount type=bind, source=/dir/in/hose/machine/, target=/app/ \
+     my_doc_image
+
+```
 
 **Note**: we created and set the working dir to `/app/` while creating image.
 
