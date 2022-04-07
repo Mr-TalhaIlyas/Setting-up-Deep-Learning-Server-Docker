@@ -51,7 +51,7 @@ include all the packages you need in this `txt` file.
 ### Build your image
 Copy the both files in same `dir` and `cd` to that `dir` and start `build` by running following command.
 
-```cmd
+```terminal
 docker build -t my_doc_image .
 ```
 `-t` will specify tag/name of your package build
