@@ -26,8 +26,8 @@ RUN apt-get update && apt-get install -y \
     libsm6 \
     libxext6
 
-
-RUN pip install -r requirements.txt
+# the final flag/option is to avaoid dependency resolver error
+RUN pip install -r requirements.txt --use-feature=2020-resolver
 
 COPY . /home/talha/data_ssd/Talha
 ```
