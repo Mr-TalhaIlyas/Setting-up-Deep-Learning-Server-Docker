@@ -181,7 +181,7 @@ If you have entered python inside container then first press `Ctrl` + `Z`.
 
 So its better to create Docker custom image files using `Docker build` so that you can load your own custom containers with all the dependencides installed.
 
-For that ge here ==**[Build Custom ML Docker Images](https://github.com/Mr-TalhaIlyas/Setting-up-Deep-Learning-Server-Docker/blob/main/build_docker_image.md)**==
+For that follow the steps mentioned here **[Build Custom ML Docker Images](https://github.com/Mr-TalhaIlyas/Setting-up-Deep-Learning-Server-Docker/blob/main/build_docker_image.md)**.
 
 
 
@@ -191,7 +191,7 @@ For that ge here ==**[Build Custom ML Docker Images](https://github.com/Mr-Talha
 
 # <a name="uninstall-docker">Uninstalling Docker</a>
 
-For complete removel 
+For complete removel
 
 ```cli
 $ dpkg -l | grep -i docker
