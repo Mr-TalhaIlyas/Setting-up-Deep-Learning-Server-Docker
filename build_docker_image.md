@@ -11,7 +11,7 @@ Here I'll summarize making docker image for ML/DL models. I'll be creating `tens
 # base image this one will have the OS, python and pip already installed in it.
 FROM tensorflow/tensorflow:2.3.0-gpu
 
-# first make a dir end it with '/' 
+# first make a dir end it with '/' so that all the files specified by * will copied to the new dir
 RUN mkdir /app/
 
 # then copy the all the files in your source dir to the new dir
@@ -42,6 +42,8 @@ tqdm
 fmutils
 empatches
 gray2color
+scikit-image
+scikit-learn
 ```
 include all the packages you need in this `txt` file.
 
@@ -79,3 +81,5 @@ docker run -it --rm -v /dir/in/hose/machine/:/app my_doc_image
 `-v` flag will mount *local folder* `/dir/in/hose/machine/` to `/app/` directory on the container image.
 
 **Note**: we created and set the working dir to `/app/` while creating image.
+
+Your can check all the files loaded in container by typing `ls`.
