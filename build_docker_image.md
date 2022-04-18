@@ -83,9 +83,7 @@ $ docker run -it --rm -v /dir/in/hose/machine/:/app/ my_doc_image
 The above functionality can also be achieved by using `-mount` instead of `-v` flag.
 
 ```
-$ docker run -it --rm \
-     --mount type=bind, source=/dir/in/hose/machine/, target=/app/ \
-     my_doc_image
+$ docker run -it --rm --mount type=bind,source=/home/user01/my_data/,target=/app/ my_docker_img
 
 ```
 
