@@ -65,7 +65,11 @@ After running it will take some time to download and cache all the packages. Onc
 Now you can run your image by simply typing
 
 ```
-docker run -it --rm my_doc_image
+$ cker run -it --rm my_doc_image
+
+// to exit and close image press
+ 
+ Ctrl + D
 ```
 `-it` flag wil enables interactive processes in the workbench terminal.
 
@@ -97,9 +101,9 @@ Your can check all the files loaded in container by typing `ls`.
 docker login
 # enter username and password
 
-docker build -t tf:2.3-gpu-v0.1 .
+$ cker build -t tf:2.3-gpu-v0.1 .
 
-docker tag tf:2.3-gpu-v0.1 talhailyas/tf:2.3-gpu-v0.1
+$ cker tag tf:2.3-gpu-v0.1 talhailyas/tf:2.3-gpu-v0.1
 
-docker push talhailyas/tf:2.3-gpu-v0.1
+$ cker push talhailyas/tf:2.3-gpu-v0.1
 ```
