@@ -95,6 +95,13 @@ $ docker run -it --rm --mount type=bind,source=/home/user01/my_data/,target=/app
 
 Your can check all the files loaded in container by typing `ls`.
 
+### Run image in Detached Mode
+
+Add `-d` flag in above command
+```
+$ docker run -it -d --mount type=bind,source=/home/user01/my_data/,target=/app/ my_docker_img
+```
+
 ## Push you container to Docker Hub
 
 ```
