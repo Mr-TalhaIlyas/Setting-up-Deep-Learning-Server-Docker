@@ -61,6 +61,12 @@ docker tag my_doc_image username/doc_image_tag-with-change-version
 docker push username/doc_image_tag-with-change-version
 
 ```
+
+### Download `pull` your image
+
+```
+docker pull username/doc_image_tag-with-change-version
+```
 `-t` will specify tag/name of your package build
 
 `.` will specify that the Dockerfile is in the same dir. Else you can put full path there.
@@ -72,7 +78,7 @@ After running it will take some time to download and cache all the packages. Onc
 Now you can run your image by simply typing
 
 ```
-$ cker run -it --rm my_doc_image
+$ doocker run -it --rm my_doc_image
 
 // to exit and close image press
  
@@ -96,6 +102,17 @@ The above functionality can also be achieved by using `-mount` instead of `-v` f
 ```
 $ docker run -it --rm --mount type=bind,source=/home/user01/my_data/,target=/app/ my_docker_img
 
+```
+
+### Loading multiple input `dir`
+
+Following command will load multiple input dirs to docker and once the docker is finished running the outptus of those mounted `dirs` will also be returned and saved outside the docker image in hose machine.
+
+```
+docker run --gpus all -v /home/user01/Data/flow_mask/load_data/input:/app/input \
+           -v /home/user01/Data/flow_mask/load_data/output:/app/output \
+           -v /home/user01/Data/flow_mask/load_data/logs:/app/logs \
+           talhailyas/uniflow:latest
 ```
 
 **Note**: we created and set the working dir to `/app/` while creating image.
