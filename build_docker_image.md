@@ -48,24 +48,24 @@ scikit-learn
 include all the packages you need in this `txt` file.
 
 
-### Build your image
+### 3. Build your image
 Copy the both files in same `dir` and `cd` to that `dir` and start `build` by running following command.
 
-```terminal
-docker build -t my_doc_image .
+```console
+user:~$ docker build -t my_doc_image .
 
 # now assign a tag to it
-docker tag my_doc_image username/doc_image_tag-with-change-version
+user:~$ docker tag my_doc_image username/doc_image_tag-with-change-version
 
 # now push it to hub
-docker push username/doc_image_tag-with-change-version
+user:~$ docker push username/doc_image_tag-with-change-version
 
 ```
 
-### Download `pull` your image
+### 4. Download `pull` your image
 
-```
-docker pull username/doc_image_tag-with-change-version
+```console
+user:~$ docker pull username/doc_image_tag-with-change-version
 ```
 `-t` will specify tag/name of your package build
 
@@ -73,12 +73,12 @@ docker pull username/doc_image_tag-with-change-version
 
 After running it will take some time to download and cache all the packages. Once first build is done the next build will be fast as Docker will use cached data.
 
-### Run your image
+### 5. Run your image
 
 Now you can run your image by simply typing
 
-```
-$ doocker run -it --rm my_doc_image
+```console
+user:~$ doocker run -it --rm my_doc_image
 
 // to exit and close image press
  
@@ -92,27 +92,27 @@ For detailed options/flags [here](https://docs.docker.com/engine/reference/comma
 
 If you want to mount an external host machine `dir` to be mounted in the container then you can type
 
-```
-$ docker run -it --rm -v /dir/in/hose/machine/:/app/ my_doc_image
+```console
+user:~$ docker run -it --rm -v /dir/in/hose/machine/:/app/ my_doc_image
 ```
 `-v` flag will mount *local folder* `/dir/in/hose/machine/` to `/app/` directory on the container image.
 
 The above functionality can also be achieved by using `-mount` instead of `-v` flag.
 
-```
-$ docker run -it --rm --mount type=bind,source=/home/user01/my_data/,target=/app/ my_docker_img
+```console
+user:~$ docker run -it --rm --mount type=bind,source=/home/user01/my_data/,target=/app/ my_docker_img
 
 ```
 
-### Loading multiple input `dir`
+### 6. Loading multiple input `dir`
 
 Following command will load multiple input dirs to docker and once the docker is finished running the outptus of those mounted `dirs` will also be returned and saved outside the docker image in hose machine.
 
-```
-docker run --gpus all -v /home/user01/Data/flow_mask/load_data/input:/app/input \
-           -v /home/user01/Data/flow_mask/load_data/output:/app/output \
-           -v /home/user01/Data/flow_mask/load_data/logs:/app/logs \
-           talhailyas/uniflow:latest
+```console
+user:~$ docker run --gpus all -v /home/user01/Data/flow_mask/load_data/input:/app/input \
+                   -v /home/user01/Data/flow_mask/load_data/output:/app/output \
+                   -v /home/user01/Data/flow_mask/load_data/logs:/app/logs \
+                   talhailyas/uniflow:latest
 ```
 
 **Note**: we created and set the working dir to `/app/` while creating image.
@@ -122,19 +122,6 @@ Your can check all the files loaded in container by typing `ls`.
 ### Run image in Detached Mode
 
 Add `-d` flag in above command
-```
-$ docker run -it -d --mount type=bind,source=/home/user01/my_data/,target=/app/ my_docker_img
-```
-
-## Push you container to Docker Hub
-
-```
-docker login
-# enter username and password
-
-$ cker build -t tf:2.3-gpu-v0.1 .
-
-$ cker tag tf:2.3-gpu-v0.1 talhailyas/tf:2.3-gpu-v0.1
-
-$ cker push talhailyas/tf:2.3-gpu-v0.1
+```console
+user:~$ docker run -it -d --mount type=bind,source=/home/user01/my_data/,target=/app/ my_docker_img
 ```
