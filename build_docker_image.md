@@ -53,6 +53,13 @@ Copy the both files in same `dir` and `cd` to that `dir` and start `build` by ru
 
 ```terminal
 docker build -t my_doc_image .
+
+# now assign a tag to it
+docker tag my_doc_image username/doc_image_tag-with-change-version
+
+# now push it to hub
+docker push username/doc_image_tag-with-change-version
+
 ```
 `-t` will specify tag/name of your package build
 
